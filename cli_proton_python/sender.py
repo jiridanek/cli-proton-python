@@ -227,6 +227,7 @@ class Send(coreclient.CoreClient):
             msg.address = self.opts.msg_address
         else:
             msg.content_type = msg_content_type
+        msg.annotations = utils.prepare_flat_map(self.opts.msg_annotations)
         msg.properties = utils.prepare_flat_map(self.opts.msg_properties)
         msg.body = msg_content
 

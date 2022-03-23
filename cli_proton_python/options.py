@@ -297,6 +297,11 @@ class SenderOptions(SRCoreOptions):
                          dest="msg_properties", default=[],
                          metavar="NAME=VALUE|NAME~VALUE",
                          action="callback", callback=to_unicode)
+        group.add_option("--msg-annotation", type="string",
+                         help="specify map entry for message annotations",
+                         dest="msg_annotations", default=[],
+                         metavar="NAME=VALUE|NAME~VALUE",
+                         action="callback", callback=to_unicode)
         group.add_option("-M", "--msg-content-map-item", type="string",
                          help="specify map entry for message body ('~' enables type auto-cast)",
                          dest="msg_map_items", default=[],

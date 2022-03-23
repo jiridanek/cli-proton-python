@@ -325,6 +325,15 @@ class MessageOptionsTests(SenderReceiverTestCase):
         self.assertEqual(sent_messages[0].reply_to, send_opts.msg_reply_to)
         self.assertEqual(sent_messages[0].reply_to, recv_messages[0].reply_to)
 
+    def test_msg_annotations(self):
+        """ tests message annotations """
+        send_opts = self.get_sender_opts()
+        send_opts.msg_annotations = {'test=annotation'}
+        sent_messages = self.run_sender(send_opts)
+        recv_messages = self.run_receiver()
+        self.assertEqual(sent_messages[0].annotations, {'test': 'annotation'})
+        self.assertEqual(sent_messages[0].annotations, recv_messages[0].annotations)
+
     def test_msg_properties(self):
         """ tests message properties """
         send_opts = self.get_sender_opts()
